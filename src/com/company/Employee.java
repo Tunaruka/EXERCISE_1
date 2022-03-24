@@ -10,13 +10,6 @@ public class Employee {
         setInfo(hourlySalary,hoursOfWorkPerDay);
     }
 
-    public double getHourlySalary() {
-        return hourlySalary;
-    }
-
-    public double getHoursOfWorkPerDay() {
-        return hoursOfWorkPerDay;
-    }
 
     public void setInfo(double hourlySalary, double hoursOfWorkPerDay) {
         while (!validateHourlySalary() || !validateHourOfWorkPerDay()) {

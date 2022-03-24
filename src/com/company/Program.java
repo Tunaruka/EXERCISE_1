@@ -87,6 +87,17 @@ public class Program {
         employee.getInfo();
     }
 
+//    private boolean validateInput(double number){
+//        do {
+//            while (!scanner.hasNextDouble()) {
+//                System.out.println("That's not a  number! Try again");
+//                scanner.next();
+//            }
+//            number = scanner.nextDouble();
+//            return true;
+//        } while (number <= 0);
+//    }
+
 
 }
 
