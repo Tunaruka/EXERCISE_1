@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Employee {
+    Scanner sc = new Scanner(System.in);
     private double hourlySalary;
     private double hoursOfWorkPerDay;
     public Employee(double hourlySalary, double hoursOfWorkPerDay) {
@@ -16,16 +19,17 @@ public class Employee {
     }
 
     public void setInfo(double hourlySalary, double hoursOfWorkPerDay) {
-        if (hourlySalary >= 0) {
+        while (!validateHourlySalary() || !validateHourOfWorkPerDay()) {
+            System.out.println("Invalid input, try again.");
+            break;
+        }
+        if (validateHourlySalary()) {
             this.hourlySalary = hourlySalary;
-        } else {
-            System.out.println("Wrong input number!");
         }
-        if ((hoursOfWorkPerDay < 24) && (hoursOfWorkPerDay >0)) {
+        if (validateHourOfWorkPerDay()) {
             this.hoursOfWorkPerDay = hoursOfWorkPerDay;
-        } else {
-            System.out.println("Wrong input number!");
         }
+
     }
 
     private double computeBaseSalary(double hourlySalary, double hoursOfWorkPerDay) {
@@ -33,7 +37,7 @@ public class Employee {
     }
 
     private double addSal(double salary) {
-        if (salary < 500) {
+        if ((salary < 500) && (salary >0)) {
             return salary += 10;
         } else
             return salary;
@@ -50,6 +54,19 @@ public class Employee {
         double baseSalary = addWork(hoursOfWorkPerDay, computeBaseSalary(hourlySalary,hoursOfWorkPerDay));
         double finalSalary = addSal(baseSalary);
         System.out.println("The salary of employee is: " + finalSalary);
+    }
+
+    private boolean validateHourOfWorkPerDay(){
+        if(hoursOfWorkPerDay < 0 || hoursOfWorkPerDay > 24)
+            return false;
+        return true;
+    }
+
+    private boolean validateHourlySalary()
+    {
+        if(hourlySalary < 0)
+            return false;
+        return true;
     }
 
 
