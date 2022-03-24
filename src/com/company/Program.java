@@ -55,17 +55,26 @@ public class Program {
     private static void calculateCircle() {
         System.out.print("Enter radius of circle: ");
         double radius = scanner.nextDouble();
-        Circle circle = new Circle(radius);
-        System.out.println("Area of circle = " + String.format("%.2f", circle.getArea()));
-        System.out.println("Perimeter of circle = " + String.format("%.2f", circle.getPerimeter()));
+        if (radius > 0){
+            Circle circle = new Circle(radius);
+            System.out.println("Area of circle = " + String.format("%.2f", circle.getArea()));
+            System.out.println("Perimeter of circle = " + String.format("%.2f", circle.getPerimeter()));
+        } else {
+            System.out.println("Invalid Input.");
+        }
+
     }
 
     private static void calculateSquare() {
         System.out.print("Enter side of square: ");
         double side = scanner.nextDouble();
-        Square square = new Square(side);
-        System.out.println("Area of square = " + square.getArea());
-        System.out.println("Perimeter of square = " + square.getPerimeter());
+        if (side > 0) {
+            Square square = new Square(side);
+            System.out.println("Area of square = " + square.getArea());
+            System.out.println("Perimeter of square = " + square.getPerimeter());
+        } else {
+            System.out.println("Invalid Input.");
+        }
     }
 
     private static void calculateRectangle() {
@@ -73,9 +82,13 @@ public class Program {
         double height = scanner.nextDouble();
         System.out.print("Enter width of rectangle: ");
         double width = scanner.nextDouble();
-        Rectangle rectangle = new Rectangle(height, width);
-        System.out.println("Area of rectangle = " + rectangle.getArea());
-        System.out.println("Perimeter of rectangle = " + rectangle.getPerimeter());
+        if ((height > 0) && (width > 0)) {
+            Rectangle rectangle = new Rectangle(height, width);
+            System.out.println("Area of rectangle = " + rectangle.getArea());
+            System.out.println("Perimeter of rectangle = " + rectangle.getPerimeter());
+        } else {
+            System.out.println("Invalid Input.");
+        }
     }
 
     private static void calculateSalary(){
@@ -83,22 +96,13 @@ public class Program {
         double hourlySalary = scanner.nextDouble();
         System.out.println("Enter hour of work per day: ");
         double hourPerDay = scanner.nextDouble();
-        Employee employee = new Employee(hourlySalary, hourPerDay);
-        employee.getInfo();
+        if ((hourlySalary > 0) && (hourPerDay > 0) && (hourPerDay < 24)) {
+            Employee employee = new Employee(hourlySalary, hourPerDay);
+            employee.getInfo();
+        } else {
+            System.out.println("Invalid Input.");
+        }
     }
-
-//    private boolean validateInput(double number){
-//        do {
-//            while (!scanner.hasNextDouble()) {
-//                System.out.println("That's not a  number! Try again");
-//                scanner.next();
-//            }
-//            number = scanner.nextDouble();
-//            return true;
-//        } while (number <= 0);
-//    }
-
-
 }
 
 

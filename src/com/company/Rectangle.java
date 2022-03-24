@@ -1,8 +1,8 @@
 package com.company;
 
 public class Rectangle implements IShape {
-    private double height;
-    private double width;
+    private final double height;
+    private final double width;
 
     public Rectangle(double height, double width) {
             this.height = height;

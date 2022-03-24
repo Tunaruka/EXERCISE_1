@@ -1,26 +1,24 @@
 package com.company;
 
 
-public class Circle implements IShape {
-    private double radius;
+public final class Circle implements IShape {
+    private final double radius;
 
-    public Circle(double r) {
+    public Circle(double radius) {
         this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 
     @Override
     public double getPerimeter() {
-            return 2 * Math.PI * radius;
+            return 2 * Math.PI * this.getRadius();
     }
 
     @Override
     public double getArea() {
-        return (22 / 7.0) * radius * radius;
+        return Math.PI * this.getRadius() * this.getRadius();
     }
-
-//    private boolean validateRadius(){
-//        if(radius < 0)
-//            return false;
-//        return true;
-//    }
 }
